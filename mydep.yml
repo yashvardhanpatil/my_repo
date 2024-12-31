@@ -1,0 +1,35 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: my-deployment
+spec:
+  strategy:
+    type: Recreate
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-app
+  template:  # Corrected from "templete"
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:  # Corrected indentation and placement
+      - name: my-container  # Fixed placement of "name"
+        image: yashpatil551/myimage
+        ports:
+        - containerPort: 8501
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: appservice
+spec:
+  type: NodePort
+  selector:  # Corrected indentation
+    app: my-app
+  ports:
+    - port: 80
+      targetPort: 8501
+      nodePort: 30001

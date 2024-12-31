@@ -3,18 +3,11 @@ pipeline {
         node {
             label 'jenkins_slave'
         }
-    }
-    
+    }    
     stages {
         stage('Checkout code') {
             steps {
                 git url: 'https://github.com/yashvardhanpatil/my_repo.git', branch: 'main'
-            }
-        }
-       stage('cleanup stage') {
-            steps {
-                sh 'docker rmi -f myimage'
-                sh 'docker rm -f $(docker ps -aq)'
             }
         }
         stage('Build Docker Image') {

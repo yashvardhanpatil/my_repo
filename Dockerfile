@@ -3,4 +3,4 @@ RUN pip install streamlit
 WORKDIR /var
 COPY . .
 EXPOSE 8501
-CMD [ "streamlit" , "run" , "dev.py" ]
+CMD [ "streamlit" , "run" , "web.py" ]

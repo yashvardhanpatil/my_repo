@@ -1,7 +1,7 @@
 pipeline{
     agent{
         node{
-            lable 'Jenkins slave node'
+            lable 'jenkins_slave '
         }
     }
     stages{
